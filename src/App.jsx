@@ -1,27 +1,11 @@
 import { useState } from "react";
 import Navbar from "./component/Navbar";
-import Bio from "./component/Bio"
-import StatCard from "./component/StatCard";
+import Profile from "./component/Profile";
 
 function App() {
-  const [followers, setFollowers] = useState(0);
-  const [rate, setRate] = useState(500);
   const [portfolioStars, setPortfolioStars] = useState(0);
   const [todoStars, setTodoStars] = useState(0);
   const [dotfilesStars, setDotfilesStars] = useState(0);
-
-  function handleFollow() {
-    setFollowers(followers + 1);
-  }
-
-  function handleAddRate() {
-    setRate(rate + 100);
-  }
-
-  function handleReset() {
-    setFollowers(0);
-    setRate(500);
-  }
 
   function handleStarPortfolio() {
     setPortfolioStars(portfolioStars + 1);
@@ -39,33 +23,7 @@ function App() {
     <div className="flex min-h-screen flex-col bg-[#FAF3E1] text-[#222222]">
       <Navbar />
       
-      <div className="flex items-end justify-between bg-[#F5E7C6] px-20 py-10">
-        <div>
-          <Bio name="Nathan Roy C. Gonzales" username="@NateRateLoL" />
-          <div className="mt-6 flex gap-6">
-            <StatCard value={followers} label="Followers"/>
-            <StatCard value={rate} label="PHP per hour"/>
-          </div>
-        </div>
-
-        <div className="flex gap-4">
-          <button
-            className="cursor-pointer rounded-lg bg-[#FA8112] px-8 py-3 text-xl font-bold text-[#222222]"
-            onClick={ handleFollow }>
-            Follow
-        </button>
-        <button
-            className="cursor-pointer rounded-lg bg-[#FA8112] px-8 py-3 text-xl font-bold text-[#222222]"
-            onClick={ handleAddRate }>
-            Add rate
-        </button>
-        <button
-            className="cursor-pointer rounded-lg bg-[#FA8112] px-8 py-3 text-xl font-bold text-[#222222]"
-            onClick={ handleReset }>
-            Reset
-        </button>
-        </div>
-      </div>
+      <Profile />
 
       <main className="grid grid-cols-3 gap-8 px-20 pt-8">
         <div className="rounded-xl border-2 border-[#222222] p-8">
